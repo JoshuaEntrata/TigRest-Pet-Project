@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
+import { DatePicker } from "antd";
 
 function App() {
   return (
@@ -9,6 +10,8 @@ function App() {
           <img src={logo} className="w-20 h-20" alt="logo" />
           <h1 className="text-purple-500 bg-blue-800">Hello world</h1>
         </div>
+
+        <DatePicker />
 
         <p>
           Edit <code>src/App.js</code> and save to reload.
