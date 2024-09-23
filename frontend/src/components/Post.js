@@ -9,14 +9,17 @@ const Post = ({
   datetime,
   title,
   message,
-  upvote,
-  downvote,
+  count,
   commentCount = 0,
 }) => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [editTitle, setEditTitle] = useState(title);
+  const [editMessage, setEditMessage] = useState(message);
 
   const showEditModal = () => {
+    setEditTitle(title);
+    setEditMessage(message);
     setIsEditModalOpen(true);
   };
 
@@ -74,7 +77,7 @@ const Post = ({
       <Divider className="bg-blue-400" />
 
       <div className="flex w-full justify-between">
-        <PostVote initialUpvote={upvote} initialDownvote={downvote} />
+        <PostVote initialCount={count} />
 
         <div className="flex gap-2 items-center">
           <CommentOutlined />
@@ -86,6 +89,8 @@ const Post = ({
         isOpen={isEditModalOpen}
         onOk={handleOkEdit}
         onCancel={handleCancelEdit}
+        title={editTitle}
+        message={editMessage}
       />
 
       <DeletePostModal
