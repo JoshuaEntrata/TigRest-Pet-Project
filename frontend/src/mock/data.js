@@ -2,9 +2,9 @@ export const postData = [
   {
     id: 1,
     datetime_posted: "21 September 2024, 5:28pm",
-    title: "Fan Meet and Greet",
+    title: "First Title Test",
     message:
-      "Hey everyone! We are beyond excited to announce that we will be having a fan meet and greet this weekend! It’s been a while since we’ve had the chance to meet all of you in person, and we can’t wait to see your smiling faces. We’ll be signing autographs, taking pictures, and spending some quality time with our amazing fans. Make sure to bring your friends and family along for a fun-filled day. We have some special surprises planned, and we promise it will be an unforgettable experience. See you all there!",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     count: 3,
     username: "Aiah Arceta",
     comments: [
@@ -27,9 +27,9 @@ export const postData = [
   {
     id: 2,
     datetime_posted: "21 September 2024, 6:00pm",
-    title: "Behind the Scenes",
+    title: "Second title for this dummy data",
     message:
-      "Hello, wonderful fans! We are thrilled to share a behind-the-scenes look at our latest project. This video gives you an exclusive peek into our daily lives, the hard work that goes into our performances, and the fun moments we share as a team. We hope you enjoy watching it as much as we enjoyed making it. Your support means the world to us, and we can’t wait to hear your thoughts. Stay tuned for more exciting content coming your way!",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
     count: 3,
     username: "Gwen Apuli",
     comments: [
@@ -52,9 +52,9 @@ export const postData = [
   {
     id: 3,
     datetime_posted: "21 September 2024, 7:15pm",
-    title: "Merchandise Launch",
+    title: "Title no. 3",
     message:
-      "Great news, everyone! Our brand-new merchandise line is officially available! We’ve put a lot of thought and love into designing these items, and we hope you love them as much as we do. From stylish apparel to cool accessories, there’s something for everyone. Be sure to check out our online store and grab your favorites before they sell out. Thank you for your continued support, and happy shopping!",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
     count: 3,
     username: "Stacey Seville",
     comments: [
@@ -77,9 +77,9 @@ export const postData = [
   {
     id: 4,
     datetime_posted: "22 September 2024, 8:00am",
-    title: "New Single Release",
+    title: "Very Long message",
     message:
-      "Hey music lovers! We are ecstatic to announce that our new single is out now! This track is very special to us, and we poured our hearts into creating it. We hope it resonates with you and becomes a part of your favorite playlist. Don’t forget to stream it on your preferred platform and share it with your friends. Your feedback and support mean everything to us. Enjoy the music!",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     count: 30,
     username: "Mikha Lim",
     comments: [
@@ -109,9 +109,8 @@ export const postData = [
   {
     id: 5,
     datetime_posted: "22 September 2024, 10:30am",
-    title: "Concert Announcement",
-    message:
-      "Exciting news! We are thrilled to announce our upcoming live concert next month! It’s going to be an incredible night filled with music, dance, and unforgettable moments. We’ve been working hard to prepare a fantastic show for you all, and we can’t wait to perform live again. Tickets will be available soon, so keep an eye out for updates. We hope to see you there, ready to sing and dance along with us",
+    title: "Announcement",
+    message: "Lorem ipsum dolor sit amet.",
     count: 27,
     username: "Colet Vergara",
     comments: [],
@@ -119,9 +118,9 @@ export const postData = [
   {
     id: 6,
     datetime_posted: "22 September 2024, 12:00pm",
-    title: "Album Release",
+    title: "Banana",
     message:
-      "Hello everyone! We are overjoyed to share that our new album is finally here! This album is a labor of love, and we can’t wait for you to hear it. Each song tells a story, and we hope it brings you as much joy as it brought us while creating it. Please listen, share, and let us know your favorite tracks. Thank you for your unwavering support. Enjoy the music journey with us!",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     count: 2,
     username: "Jhoanna Robles",
     comments: [
@@ -158,9 +157,9 @@ export const postData = [
   {
     id: 7,
     datetime_posted: "22 September 2024, 2:30pm",
-    title: "Charity Event",
+    title: "Hello World",
     message:
-      "Dear fans, we are excited to announce that we will be hosting a charity event next month. This cause is very close to our hearts, and we hope to make a significant impact with your help. There will be performances, auctions, and many fun activities. All proceeds will go towards supporting those in need. We invite you to join us in making a difference. Thank you for your generosity and support!",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut .",
     count: 19,
     username: "Sheena Catacutan",
     comments: [
@@ -178,7 +177,7 @@ export const postData = [
     datetime_posted: "29 September 2024, 2:30pm",
     title: "Special Announcement",
     message:
-      "Hey everyone! We have a very special announcement to make. We are launching a new initiative to connect more closely with our fans. This includes exclusive content, live Q&A sessions, and behind-the-scenes access. We want to create a space where we can interact with you more personally and share our journey with you. Stay tuned for more details, and thank you for being the best fans ever!",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.",
     count: 3,
     username: "Maloi Ricalde",
     comments: [],
