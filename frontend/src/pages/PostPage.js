@@ -14,12 +14,13 @@ const PostPage = () => {
     <PageLayout>
       <div className="flex flex-col gap-5 w-1/2">
         <Post
-          username={postObj.username}
+          username={"anonymous"}
           datetime={postObj.datetime_posted}
           title={postObj.title}
           message={postObj.message}
           upvote={postObj.upvote_count}
           downvote={postObj.downvote_count}
+          commentCount={commentObj.length}
         />
 
         <AddComment />
@@ -29,7 +30,7 @@ const PostPage = () => {
             return (
               <Comment
                 key={comment.id}
-                username={comment.username}
+                username={"anonymous"}
                 datetime={comment.datetime_posted}
                 message={comment.message}
                 upvote={comment.upvote_count}

@@ -1,13 +1,8 @@
-import React from "react";
-import { Avatar, Button, List, Popover } from "antd";
-import {
-  ArrowUpOutlined,
-  ArrowDownOutlined,
-  CommentOutlined,
-  DeleteOutlined,
-  EditOutlined,
-  EllipsisOutlined,
-} from "@ant-design/icons";
+import React, { useState } from "react";
+import { Dropdown, Divider } from "antd";
+import { CommentOutlined, EllipsisOutlined } from "@ant-design/icons";
+import UserDetails from "./UserDetails";
+import { EditPostModal, DeletePostModal, PostVote } from ".";
 
 const Post = ({
   username,
@@ -18,54 +13,86 @@ const Post = ({
   downvote,
   commentCount = 0,
 }) => {
-  const voteCount = upvote - downvote;
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
-  const popoverContent = (
-    <List bordered>
-      <List.Item className="hover:bg-purple-200 cursor-pointer">
-        <EditOutlined />
-        <p>Edit Post</p>
-      </List.Item>
-      <List.Item className="hover:bg-purple-200 cursor-pointer">
-        <DeleteOutlined />
-        <p>Delete</p>
-      </List.Item>
-    </List>
-  );
+  const showEditModal = () => {
+    setIsEditModalOpen(true);
+  };
+
+  const handleOkEdit = () => {
+    // TODO: update the logic of this
+    setIsEditModalOpen(false);
+  };
+
+  const handleCancelEdit = () => {
+    setIsEditModalOpen(false);
+  };
+
+  const showDeleteModal = () => {
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleOkDelete = () => {
+    // TODO: update the logic of this
+    setIsDeleteModalOpen(false);
+  };
+
+  const handleCancelDelete = () => {
+    setIsDeleteModalOpen(false);
+  };
+
+  const menuItems = [
+    { key: "1", label: "Edit", onClick: showEditModal },
+    { key: "2", label: "Delete", onClick: showDeleteModal },
+  ];
 
   return (
-    <div className="hover:bg-pink-200 flex flex-col gap-4 px-10 py-5 rounded-lg border border-pink-400 ">
-      <div className="flex justify-between">
-        <div className="flex gap-2">
-          <Avatar size="small" />
-          <h1 className="text-sm">
-            r/{username} • {datetime}
-          </h1>
+    <div className="flex flex-col custom-card">
+      <div className="flex flex-col gap-2">
+        <div className="flex justify-between">
+          <UserDetails username={username} datetime={datetime} />
+          <Dropdown
+            menu={{
+              items: menuItems,
+            }}
+            trigger={["click"]}
+            className="m-0 p-0"
+          >
+            <EllipsisOutlined />
+          </Dropdown>
         </div>
-        <Popover content={popoverContent} trigger={"click"} className="m-0 p-0">
-          <EllipsisOutlined />
-        </Popover>
+
+        <div className="flex flex-col w-full">
+          <div className="flex flex-col gap-2">
+            <h1 className="font-semibold text-xl">{title}</h1>
+            <p className="font-light text-base">{message}</p>
+          </div>
+        </div>
       </div>
 
-      <div className="flex flex-col w-full">
-        <div className="flex flex-col gap-2">
-          <h1 className="font-semibold text-xl">{title}</h1>
-          <p className="font-light text-base">{message}</p>
-        </div>
-      </div>
+      <Divider className="bg-blue-400" />
 
-      <div className="flex gap-2 w-full">
-        <Button className="px-2 py-1 flex gap-2 rounded-2xl">
-          <ArrowUpOutlined />
-          <h1>{voteCount}</h1>
-          <ArrowDownOutlined />
-        </Button>
+      <div className="flex w-full justify-between">
+        <PostVote initialUpvote={upvote} initialDownvote={downvote} />
 
-        <Button className="px-2 py-1 flex gap-2 rounded-2xl">
+        <div className="flex gap-2 items-center">
           <CommentOutlined />
-          <h1 className="text-sm">{commentCount}+</h1>
-        </Button>
+          <h1>{commentCount}</h1>
+        </div>
       </div>
+
+      <EditPostModal
+        isOpen={isEditModalOpen}
+        onOk={handleOkEdit}
+        onCancel={handleCancelEdit}
+      />
+
+      <DeletePostModal
+        isOpen={isDeleteModalOpen}
+        onOk={handleOkDelete}
+        onCancel={handleCancelDelete}
+      />
     </div>
   );
 };
