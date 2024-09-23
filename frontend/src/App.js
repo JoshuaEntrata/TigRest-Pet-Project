@@ -6,10 +6,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/post" element={<PostPage />} />
-        <Route path="/signup" element={<SignupPage />} />
+        {/* <Route path="/" element={<LoginPage />} /> */}
+        {/* <Route path="/signup" element={<SignupPage />} /> */}
+        {/* <Route path="/home" element={<HomePage />} /> */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/post/:id" element={<PostPage />} />
       </Routes>
     </BrowserRouter>
   );
