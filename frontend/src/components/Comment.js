@@ -3,7 +3,7 @@ import UserDetails from "./UserDetails";
 import { Divider } from "antd";
 import { PostVote } from ".";
 
-const Comment = ({ username, datetime, message, count }) => {
+const Comment = ({ username, datetime, message, count, postId }) => {
   return (
     <div className="custom-card">
       <div className="flex flex-col gap-2">

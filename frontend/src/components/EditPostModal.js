@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Modal, Input } from "antd";
+import { updatePost } from "../api";
 
-const EditPostModal = ({ isOpen, onOk, onCancel, title, message }) => {
+const EditPostModal = ({ isOpen, onOk, onCancel, postId, title, message }) => {
   const [newTitle, setNewTitle] = useState(title);
   const [newMessage, setNewMessage] = useState(message);
 
@@ -10,11 +11,21 @@ const EditPostModal = ({ isOpen, onOk, onCancel, title, message }) => {
     setNewMessage(message);
   }, [title, message]);
 
+  const handleUpdate = async () => {
+    const updatedPost = {
+      title: newTitle,
+      message: newMessage,
+    };
+
+    await updatePost(postId, updatedPost);
+    onOk();
+  };
+
   return (
     <Modal
       title="Edit Post"
       open={isOpen}
-      onOk={onOk}
+      onOk={handleUpdate}
       onCancel={onCancel}
       width={800}
     >

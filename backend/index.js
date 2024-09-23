@@ -1,7 +1,9 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const port = 3001;
 
+app.use(cors());
 app.use(express.json());
 
 /*****************************
@@ -15,8 +17,8 @@ let postIdCounter = 1;
 const testPost = {
   id: 1,
   datetime_posted: "1 January 2025, 4:20pm",
-  message: "wassup beach",
-  count: "69",
+  message: "Testing",
+  count: "10",
   comments: [
     {
       id: 1,

@@ -1,21 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Post, CreatePost } from "../components";
 import { Link } from "react-router-dom";
-import { postData } from "../mock/data";
 import { Divider } from "antd";
 import { PageLayout } from "../layout";
+import { fetchPosts } from "../api";
 
 const HomePage = () => {
+  const [posts, setPosts] = useState([]);
+
+  const getPosts = async () => {
+    const postsData = await fetchPosts();
+    setPosts(postsData);
+  };
+
+  useEffect(() => {
+    getPosts();
+  }, []);
+
   return (
     <PageLayout>
       <div className="flex flex-col gap-5 w-1/2">
-        <CreatePost />
-        {postData.map((post) => {
-          console.log("post id :", post.id);
-          console.log("post count :", post.count);
+        <CreatePost onCreated={getPosts} />
+        {posts.map((post) => {
           return (
-            <>
-              <Link to={`/post/${post.id}`} key={post.id}>
+            <div key={post.id}>
+              <Link to={`/post/${post.id}`}>
                 <Post
                   username={"anonymous"}
                   datetime={post.datetime_posted}
@@ -25,10 +34,10 @@ const HomePage = () => {
                   commentCount={post.comments.length}
                 />
               </Link>
-              {postData.length !== post.id && (
+              {posts.length !== post.id && (
                 <Divider className="bg-blue-400 my-0" />
               )}
-            </>
+            </div>
           );
         })}
       </div>

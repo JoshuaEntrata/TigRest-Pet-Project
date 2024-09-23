@@ -1,31 +1,47 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Post, AddComment, Comment } from "../components";
 import { useParams } from "react-router-dom";
-import { postData } from "../mock/data";
+import { fetchPostById } from "../api";
 import { PageLayout } from "../layout";
 
 const PostPage = () => {
   const { id } = useParams();
 
-  const postObj = postData.find((post) => parseInt(id) === post.id);
-  const commentObj = postObj.comments;
+  const [post, setPost] = useState(null);
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    const getPost = async () => {
+      const postData = await fetchPostById(id);
+      if (postData) {
+        setPost(postData);
+        setComments(postData.comments);
+      }
+    };
+
+    getPost();
+  }, [id]);
+
+  const handleNewComment = (newComment) => {
+    setComments((prevComments) => [...prevComments, newComment]);
+  };
 
   return (
     <PageLayout>
       <div className="flex flex-col gap-5 w-1/2">
         <Post
           username={"anonymous"}
-          datetime={postObj.datetime_posted}
-          title={postObj.title}
-          message={postObj.message}
-          count={postObj.count}
-          commentCount={commentObj.length}
+          datetime={post.datetime_posted}
+          title={post.title}
+          message={post.message}
+          count={post.count}
+          commentCount={comments.length}
         />
 
-        <AddComment />
+        <AddComment postId={post.id} onComment={handleNewComment} />
 
-        {commentObj &&
-          commentObj.map((comment) => {
+        {comments &&
+          comments.map((comment) => {
             return (
               <Comment
                 key={comment.id}
