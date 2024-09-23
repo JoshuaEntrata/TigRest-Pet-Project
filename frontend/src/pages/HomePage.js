@@ -1,5 +1,5 @@
 import React from "react";
-import { Post } from "../components";
+import { Post, CreatePost } from "../components";
 import { Link } from "react-router-dom";
 import { postData } from "../mock/data";
 import { Divider } from "antd";
@@ -9,6 +9,7 @@ const HomePage = () => {
   return (
     <PageLayout>
       <div className="flex flex-col gap-5 w-1/2">
+        <CreatePost />
         {postData.map((post) => {
           console.log("post id :", post.id);
           console.log("post count :", post.count);

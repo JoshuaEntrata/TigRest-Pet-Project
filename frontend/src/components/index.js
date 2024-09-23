@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import DeletePostModal from "./DeletePostModal";
 import EditPostModal from "./EditPostModal";
 import PostVote from "./PostVote";
+import CreatePost from "./CreatePost";
 
 export {
   Comment,
@@ -16,4 +17,5 @@ export {
   DeletePostModal,
   EditPostModal,
   PostVote,
+  CreatePost,
 };
