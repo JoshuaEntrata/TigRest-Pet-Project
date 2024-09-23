@@ -1,7 +1,7 @@
 import React from "react";
 import { Post } from "../components";
 import { Link } from "react-router-dom";
-import { postData } from "../data/data";
+import { postData } from "../mock/data";
 import { Divider } from "antd";
 import { PageLayout } from "../layout";
 
@@ -10,6 +10,8 @@ const HomePage = () => {
     <PageLayout>
       <div className="flex flex-col gap-5 w-1/2">
         {postData.map((post) => {
+          console.log("post id :", post.id);
+          console.log("post count :", post.count);
           return (
             <>
               <Link to={`/post/${post.id}`} key={post.id}>
@@ -18,8 +20,7 @@ const HomePage = () => {
                   datetime={post.datetime_posted}
                   title={post.title}
                   message={post.message}
-                  upvote={post.upvote_count}
-                  downvote={post.downvote_count}
+                  count={post.count}
                   commentCount={post.comments.length}
                 />
               </Link>

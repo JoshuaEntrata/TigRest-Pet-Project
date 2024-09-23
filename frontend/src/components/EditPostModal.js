@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Modal, Input } from "antd";
 
-const EditPostModal = ({ isOpen, onOk, onCancel }) => {
+const EditPostModal = ({ isOpen, onOk, onCancel, title, message }) => {
+  const [newTitle, setNewTitle] = useState(title);
+  const [newMessage, setNewMessage] = useState(message);
+
+  useEffect(() => {
+    setNewTitle(title);
+    setNewMessage(message);
+  }, [title, message]);
+
   return (
     <Modal
       title="Edit Post"
@@ -12,14 +20,15 @@ const EditPostModal = ({ isOpen, onOk, onCancel }) => {
     >
       <div className="flex flex-col gap-4">
         <Input
+          value={newTitle}
           size="large"
-          placeholder="Edit title"
+          onChange={(e) => setNewTitle(e.target.value)}
           className="border border-blue-400"
         />
         <Input.TextArea
+          value={newMessage}
           size="large"
-          placeholder="Edit message"
-          rows={4}
+          onChange={(e) => setNewMessage(e.target.value)}
           className="border border-blue-400"
         />
       </div>

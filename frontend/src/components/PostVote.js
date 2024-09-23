@@ -6,33 +6,32 @@ import {
   DislikeFilled,
 } from "@ant-design/icons";
 
-const PostVote = ({ initialUpvote, initialDownvote }) => {
-  const [upvote, setUpvote] = useState(initialUpvote);
-  const [downvote, setDownvote] = useState(initialDownvote);
+const PostVote = ({ initialCount }) => {
+  const [count, setCount] = useState(initialCount);
   const [voted, setVoted] = useState(null);
 
   const handleLike = () => {
     if (voted === "like") {
-      setUpvote(upvote - 1);
+      setCount(count - 1);
       setVoted(null);
+    } else if (voted === "dislike") {
+      setCount(count + 2);
+      setVoted("like");
     } else {
-      setUpvote(upvote + 1);
-      if (voted === "dislike") {
-        setDownvote(downvote - 1);
-      }
+      setCount(count + 1);
       setVoted("like");
     }
   };
 
   const handleDislike = () => {
     if (voted === "dislike") {
-      setDownvote(downvote - 1);
+      setCount(count + 1);
       setVoted(null);
+    } else if (voted === "like") {
+      setCount(count - 2);
+      setVoted("dislike");
     } else {
-      setDownvote(downvote + 1);
-      if (voted === "like") {
-        setUpvote(upvote - 1);
-      }
+      setCount(count - 1);
       setVoted("dislike");
     }
   };
@@ -47,10 +46,7 @@ const PostVote = ({ initialUpvote, initialDownvote }) => {
             <LikeOutlined />
           )}
         </button>
-        <h1>{upvote}</h1>
-      </div>
-
-      <div className="flex gap-2 items-center">
+        <h1>{count}</h1>
         <button onClick={handleDislike}>
           {voted === "dislike" ? (
             <DislikeFilled className="text-red-600" />
@@ -58,7 +54,6 @@ const PostVote = ({ initialUpvote, initialDownvote }) => {
             <DislikeOutlined />
           )}
         </button>
-        <h1>{downvote}</h1>
       </div>
     </div>
   );

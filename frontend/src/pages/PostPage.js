@@ -1,7 +1,7 @@
 import React from "react";
 import { Post, AddComment, Comment } from "../components";
 import { useParams } from "react-router-dom";
-import { postData } from "../data/data";
+import { postData } from "../mock/data";
 import { PageLayout } from "../layout";
 
 const PostPage = () => {
@@ -18,8 +18,7 @@ const PostPage = () => {
           datetime={postObj.datetime_posted}
           title={postObj.title}
           message={postObj.message}
-          upvote={postObj.upvote_count}
-          downvote={postObj.downvote_count}
+          count={postObj.count}
           commentCount={commentObj.length}
         />
 
@@ -33,8 +32,7 @@ const PostPage = () => {
                 username={"anonymous"}
                 datetime={comment.datetime_posted}
                 message={comment.message}
-                upvote={comment.upvote_count}
-                downvote={comment.downvote_count}
+                count={comment.count}
               />
             );
           })}
