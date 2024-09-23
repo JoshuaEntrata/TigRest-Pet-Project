@@ -14,16 +14,17 @@ const HomePage = () => {
             <>
               <Link to={`/post/${post.id}`} key={post.id}>
                 <Post
-                  username={post.username}
+                  username={"anonymous"}
                   datetime={post.datetime_posted}
                   title={post.title}
                   message={post.message}
                   upvote={post.upvote_count}
                   downvote={post.downvote_count}
+                  commentCount={post.comments.length}
                 />
               </Link>
               {postData.length !== post.id && (
-                <Divider className="bg-black -my-2" />
+                <Divider className="bg-blue-400 my-0" />
               )}
             </>
           );

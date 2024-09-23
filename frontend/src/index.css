@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind base;
 
+@layer utilities {
+  .custom-card {
+    @apply px-10 py-5 hover:bg-blue-200 border border-blue-400 rounded-xl bg-blue-50 cursor-pointer;
+  }
+}
+
 .ant-popover-inner {
   padding: 0 !important;
 }

@@ -3,5 +3,17 @@ import Post from "./Post";
 import AddComment from "./AddComment";
 import UserDetails from "./UserDetails";
 import Navbar from "./Navbar";
+import DeletePostModal from "./DeletePostModal";
+import EditPostModal from "./EditPostModal";
+import PostVote from "./PostVote";
 
-export { Comment, Post, AddComment, UserDetails, Navbar };
+export {
+  Comment,
+  Post,
+  AddComment,
+  UserDetails,
+  Navbar,
+  DeletePostModal,
+  EditPostModal,
+  PostVote,
+};
